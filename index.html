@@ -9,57 +9,44 @@
 <style>
 :root{color-scheme:dark;--bg:#090b12;--line:#252d40;--text:#f4f6fb;--muted:#9aa5ba;--accent:#8b5cf6}
 *{box-sizing:border-box}
-body{margin:0;background:radial-gradient(ellipse at top,#19172e 0%,var(--bg) 48%);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
-button,input,textarea{font:inherit}button{cursor:pointer}
-button:disabled{opacity:.5;cursor:wait}
+body{margin:0;background:radial-gradient(ellipse at top,#19172e 0%,var(--bg) 48%);color:var(--text);font:15px/1.5 system-ui,sans-serif;min-height:100vh}
+button,input,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.5}
 .wrap{width:min(760px,100%);margin:auto;padding:24px 16px 40px}
 header{text-align:center;padding:20px 0 24px}
-.logo{width:58px;height:58px;border-radius:18px;margin:0 auto 12px;display:grid;place-items:center;background:linear-gradient(135deg,#a78bfa,#6d4aff);box-shadow:0 12px 35px #6d4aff35;font-size:27px;font-weight:900}
+.logo{width:58px;height:58px;border-radius:18px;margin:0 auto 12px;display:grid;place-items:center;background:linear-gradient(135deg,#a78bfa,#6d4aff);font-size:27px;font-weight:900}
 h1{font-size:clamp(27px,7vw,36px);letter-spacing:-1px;margin:0}
 .sub{color:var(--muted);margin:6px 0 0}
-.panel{background:linear-gradient(180deg,#141927f5,#101420f5);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:0 16px 44px #0003;margin-bottom:16px}
+.panel{background:linear-gradient(180deg,#141927f5,#101420f5);border:1px solid var(--line);border-radius:20px;padding:18px;margin-bottom:16px;box-shadow:0 16px 44px #0003}
 .panel h2{font-size:18px;margin:0 0 5px}
 .hint{color:var(--muted);font-size:13px;margin:0 0 16px}
 label{display:block;font-size:13px;color:#c8d0e0;margin:13px 0 6px}
 input,textarea{width:100%;border:1px solid #30384b;border-radius:12px;padding:12px 13px;background:#0a0e17;color:var(--text);outline:none}
-input:focus,textarea:focus{border-color:#9b83ff;box-shadow:0 0 0 3px #8b5cf622}
-textarea{min-height:105px;resize:vertical}
+input:focus,textarea:focus{border-color:#9b83ff}
+textarea{min-height:100px;resize:vertical}
 .primary{width:100%;border:0;border-radius:12px;background:linear-gradient(135deg,var(--accent),#6d4aff);color:white;font-weight:750;padding:13px 16px;margin-top:16px}
 .secondary,.small-btn{border:1px solid var(--line);background:#171d2b;color:var(--text);border-radius:11px;padding:9px 12px}
-.small-btn{font-size:13px;padding:6px 9px}
+.small-btn{font-size:13px;padding:7px 10px}
 .account{display:flex;align-items:center;gap:12px}
 .avatar,.mini-avatar{width:40px;height:40px;flex:none;border-radius:13px;display:grid;place-items:center;background:#272044;color:#c4b5fd;font-weight:900}
-.account-info{flex:1;min-width:0}
-.account-name{font-weight:800;overflow-wrap:anywhere}
-.account-note{color:var(--muted);font-size:12px}
+.account-info{flex:1;min-width:0}.account-name{font-weight:800;overflow-wrap:anywhere}.account-note{color:var(--muted);font-size:12px}
 .status{padding:11px 13px;border-radius:12px;background:#151b28;color:#c4cce0;font-size:13px;margin-top:12px;overflow-wrap:anywhere}
-.status.good{background:#0d2822;color:#8df0c8}
-.status.bad{background:#301721;color:#ffb1bd}
+.status.good{background:#0d2822;color:#8df0c8}.status.bad{background:#301721;color:#ffb1bd}
 .feed-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:14px}
-.feed-head h2{margin:0}
-.comment{padding:14px 0;border-top:1px solid var(--line)}
-.comment:first-child{border-top:0;padding-top:0}
-.comment-top{display:flex;gap:10px;align-items:center}
-.mini-avatar{width:34px;height:34px;border-radius:11px}
+.comment{padding:14px 0;border-top:1px solid var(--line)}.comment:first-child{border-top:0;padding-top:0}
+.comment-top{display:flex;gap:10px;align-items:center}.mini-avatar{width:34px;height:34px;border-radius:11px}
 .comment-name{font-weight:750;overflow-wrap:anywhere;color:#c4b5fd;background:none;border:0;padding:0;text-align:left}
-.comment-name:hover{text-decoration:underline}
-.date{font-size:12px;color:var(--muted)}
+.date,.chat-meta{font-size:12px;color:var(--muted)}
 .message{white-space:pre-wrap;overflow-wrap:anywhere;margin:10px 0 0;color:#e6eaf3}
-.empty{padding:22px 12px;text-align:center;color:var(--muted)}
+.empty{padding:24px 12px;text-align:center;color:var(--muted)}
 .hidden{display:none!important}
-.party-item{padding:13px 0;border-top:1px solid var(--line)}
-.party-item:first-child{border-top:0}
-.party-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.party-row strong{overflow-wrap:anywhere}
-.party-actions{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
+.party-item{padding:13px 0;border-top:1px solid var(--line)}.party-item:first-child{border-top:0}
+.party-row,.party-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.party-actions{margin-top:9px}
 .pill{font-size:11px;padding:3px 8px;border-radius:99px;background:#29213f;color:#c4b5fd}
 .chatbox{height:260px;overflow-y:auto;border:1px solid var(--line);border-radius:13px;padding:12px;background:#0a0e17;margin:12px 0}
 .chat-msg{padding:9px 11px;border-radius:12px;background:#1a2030;margin:8px 0;overflow-wrap:anywhere;white-space:pre-wrap}
-.chat-msg.mine{background:#33265a}
-.chat-meta{font-size:11px;color:#aeb8cc;margin-bottom:3px}
-.chat-compose{display:flex;gap:8px;align-items:stretch}
+.chat-msg.mine{background:#33265a}.chat-compose{display:flex;gap:8px}
 .chat-compose textarea{min-height:48px;height:48px;resize:none}
-.chat-compose button{flex:none;padding:0 14px;border:0;border-radius:12px;background:var(--accent);color:white;font-weight:700}
+.chat-compose button{padding:0 14px;border:0;border-radius:12px;background:var(--accent);color:white;font-weight:700}
 footer{text-align:center;color:#78839a;font-size:12px;padding:10px}
 @media(min-width:600px){.wrap{padding-top:34px}.panel{padding:22px}}
 </style>
@@ -74,13 +61,13 @@ footer{text-align:center;color:#78839a;font-size:12px;padding:10px}
 
 <section class="panel" id="setupPanel">
   <h2>Atur username lu 👤</h2>
-  <p class="hint">Username dikunci di browser ini. Pilih dengan benar.</p>
+  <p class="hint">Username terkunci di browser ini. Pilih dengan benar.</p>
   <form id="setupForm">
     <label for="newUsername">Username</label>
     <input id="newUsername" maxlength="30" minlength="1" required autocomplete="nickname" placeholder="Contoh: xbyaanx">
-    <button class="primary" type="submit">Simpan username</button>
+    <button class="primary" id="setupButton" type="submit">Simpan username</button>
   </form>
-  <div class="status">Catatan: username ini terikat ke identitas anonim browser ini. Menghapus data browser bisa membuat lu kehilangan akses ke identitas lama.</div>
+  <div id="setupStatus" class="status">Gunakan huruf, angka, dan underscore (_). Username tidak dapat diganti dari halaman ini.</div>
 </section>
 
 <section class="panel hidden" id="profilePanel">
@@ -88,7 +75,7 @@ footer{text-align:center;color:#78839a;font-size:12px;padding:10px}
     <div class="avatar" id="profileAvatar">U</div>
     <div class="account-info">
       <div class="account-name" id="profileName">Username</div>
-      <div class="account-note">Username terkunci di browser ini</div>
+      <div class="account-note">Username tersimpan di browser ini</div>
     </div>
   </div>
   <div id="authStatus" class="status">Menghubungkan akun...</div>
@@ -96,44 +83,44 @@ footer{text-align:center;color:#78839a;font-size:12px;padding:10px}
 
 <section class="panel hidden" id="composePanel">
   <h2>Tulis komentar 💬</h2>
-  <p class="hint">Klik username di komentar untuk mengundang orang ke Party.</p>
+  <p class="hint">Klik username di komentar untuk mengundang ke Party.</p>
   <form id="commentForm">
     <label for="message">Komentar</label>
     <textarea id="message" maxlength="1000" required placeholder="Tulis sesuatu yang baik..."></textarea>
     <button class="primary" id="commentSubmit" type="submit">Kirim komentar</button>
   </form>
-  <div id="commentStatus" class="status hidden" role="status" aria-live="polite"></div>
+  <div id="commentStatus" class="status hidden" role="status"></div>
 </section>
 
 <section class="panel hidden" id="partyPanel">
   <div class="feed-head">
-    <div><h2>👥 Party berdua</h2><p class="hint" style="margin:4px 0 0">Undangan dan chat pribadi lu.</p></div>
+    <div><h2>👥 Party berdua</h2><p class="hint" style="margin:4px 0 0">Undangan dan chat lu.</p></div>
     <button class="secondary" id="partyRefresh" type="button">Muat ulang</button>
   </div>
-  <div id="partyList"><div class="empty">Memuat Party...</div></div>
-  <div id="partyStatus" class="status hidden" role="status" aria-live="polite"></div>
+  <div id="partyList"><div class="empty">Belum ada Party.</div></div>
+  <div id="partyStatus" class="status hidden" role="status"></div>
 </section>
 
 <section class="panel hidden" id="chatPanel">
   <div class="feed-head">
-    <div><h2 id="chatTitle">🔒 Private Chat</h2><p class="hint" style="margin:4px 0 0">Hanya anggota Party yang dapat mengaksesnya.</p></div>
+    <div><h2 id="chatTitle">🔒 Private Chat</h2><p class="hint" style="margin:4px 0 0">Chat Party yang diterima.</p></div>
     <button class="secondary" id="closeChat" type="button">Tutup</button>
   </div>
-  <div id="chatMessages" class="chatbox"><div class="empty">Pilih Party untuk membuka chat.</div></div>
+  <div id="chatMessages" class="chatbox"><div class="empty">Memuat pesan...</div></div>
   <form id="chatForm" class="chat-compose">
     <textarea id="chatInput" maxlength="2000" required placeholder="Tulis pesan..."></textarea>
     <button id="chatSend" type="submit">Kirim</button>
   </form>
-  <div id="chatStatus" class="status hidden" role="status" aria-live="polite"></div>
+  <div id="chatStatus" class="status hidden" role="status"></div>
 </section>
 
 <section class="panel">
   <div class="feed-head">
-    <div><h2>💬 Komentar terbaru</h2><p class="hint" style="margin:4px 0 0">Komentar publik dari komunitas.</p></div>
+    <div><h2>💬 Komentar terbaru</h2><p class="hint" style="margin:4px 0 0">Komentar publik komunitas.</p></div>
     <button class="secondary" id="refreshButton" type="button">Muat ulang</button>
   </div>
   <div id="comments"><div class="empty">Memuat komentar...</div></div>
-  <div id="feedStatus" class="status hidden" role="status" aria-live="polite"></div>
+  <div id="feedStatus" class="status hidden" role="status"></div>
 </section>
 
 <footer>Owner Comments · Dibuat untuk komunitas</footer>
@@ -142,32 +129,35 @@ footer{text-align:center;color:#78839a;font-size:12px;padding:10px}
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 "use strict";
+
 const SUPABASE_URL="https://titqjneuyihdfbhkcxtz.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY="sb_publishable_ZLH2nnXb_OSjzfadd87q9g_3F14jQpG";
-const client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
-const $=id=>document.getElementById(id);
 const USERNAME_KEY="owner_comments_fixed_username_v1";
+const $=id=>document.getElementById(id);
 
-let username=localStorage.getItem(USERNAME_KEY)||"";
+let client=null;
+let username="";
 let currentUser=null;
 let activeParty=null;
-let refreshBusy=false;
-let partyBusy=false;
-let chatBusy=false;
-let channel=null;
+let realtimeChannel=null;
+let commentLoading=false;
+let partyLoading=false;
+let messageLoading=false;
+let busySetup=false;
 
-function status(id,msg,type=""){
-  const el=$(id);el.textContent=msg;
-  el.className="status"+(type?" "+type);
+function showStatus(id,message,type=""){
+  const el=$(id);
+  el.textContent=message;
+  el.className="status"+(type?" "+type:"");
   el.classList.remove("hidden");
 }
 function hideStatus(id){$(id).classList.add("hidden")}
-function safeText(value){return String(value??"")}
-function escapeHtml(value){
-  return safeText(value).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function timeLabel(value){
+  const d=new Date(value);
+  return Number.isNaN(d.getTime())?"":d.toLocaleString("id-ID",{dateStyle:"medium",timeStyle:"short"});
 }
 function renderUsername(){
-  const has=!!username;
+  const has=Boolean(username);
   $("setupPanel").classList.toggle("hidden",has);
   $("profilePanel").classList.toggle("hidden",!has);
   $("composePanel").classList.toggle("hidden",!has);
@@ -175,287 +165,425 @@ function renderUsername(){
   $("profileName").textContent=username;
   $("profileAvatar").textContent=(username[0]||"U").toUpperCase();
 }
-function setUsername(name){
-  username=name.trim();
-  localStorage.setItem(USERNAME_KEY,username);
-  renderUsername();
+function validUsername(value){
+  return /^[a-zA-Z0-9_]{1,30}$/.test(value);
 }
-function timeLabel(value){
-  const d=new Date(value);
-  return Number.isNaN(d.getTime())?"":d.toLocaleString("id-ID",{dateStyle:"medium",timeStyle:"short"});
+function needUser(){
+  if(!currentUser)throw new Error("Akun belum tersambung. Periksa Anonymous Sign-Ins di Supabase.");
 }
-function requireIdentity(){
-  if(!currentUser)throw Error("Identitas belum siap. Coba lagi sebentar.");
-}
-async function initIdentity(){
-  if(!username)return;
-  try{
-    let {data:{session},error}=await client.auth.getSession();
-    if(error)throw error;
-    if(!session){
-      const result=await client.auth.signInAnonymously();
-      if(result.error)throw result.error;
-      session=result.data.session;
-    }
-    currentUser=session.user;
-    const {error:profileError}=await client.from("profiles").upsert(
-      {id:currentUser.id,username},
-      {onConflict:"id"}
-    );
-    if(profileError)throw profileError;
-    status("authStatus","Akun terhubung. Username: "+username,"good");
-    await loadParties();
-    setupRealtime();
-  }catch(err){
-    status("authStatus","Belum tersambung: "+(err.message||String(err))+". Aktifkan Anonymous Sign-Ins dan jalankan SQL setup.","bad");
-  }
-}
-$("setupForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  if(localStorage.getItem(USERNAME_KEY)){
-    username=localStorage.getItem(USERNAME_KEY)||"";
-    renderUsername();return;
-  }
-  const value=$("newUsername").value.trim();
-  if(!value||value.length>30||!/[a-zA-Z0-9_]/.test(value)){
-    alert("Isi username 1–30 karakter. Gunakan huruf, angka, atau underscore.");
+
+/* SATU handler submit: simpan username, tampilkan profil, lalu sambungkan Supabase.
+   Tidak ada location.reload() sehingga proses async tidak terputus. */
+$("setupForm").addEventListener("submit",async function(event){
+  event.preventDefault();
+  if(busySetup)return;
+
+  const saved=localStorage.getItem(USERNAME_KEY);
+  if(saved){
+    username=saved;
+    renderUsername();
+    showStatus("setupStatus","Username ini sudah tersimpan di browser.","good");
     return;
   }
-  setUsername(value);
-  await initIdentity();
-  await loadComments();
+
+  const value=$("newUsername").value.trim();
+  if(!validUsername(value)){
+    showStatus("setupStatus","Username 1–30 karakter. Gunakan huruf, angka, atau underscore (_).","bad");
+    return;
+  }
+
+  busySetup=true;
+  $("setupButton").disabled=true;
+  showStatus("setupStatus","Menyimpan username...");
+
+  try{
+    localStorage.setItem(USERNAME_KEY,value);
+    username=value;
+    renderUsername();
+    showStatus("authStatus","Menghubungkan akun Supabase...");
+    await connectAccount();
+  }catch(err){
+    showStatus("setupStatus","Gagal: "+(err.message||String(err)),"bad");
+  }finally{
+    busySetup=false;
+    $("setupButton").disabled=false;
+  }
 });
 
+async function connectAccount(){
+  if(!username)return;
+  try{
+    if(!client){
+      if(!window.supabase){
+        throw new Error("Library Supabase gagal dimuat. Periksa internet dan buka ulang halaman.");
+      }
+      client=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);
+    }
+
+    let result=await client.auth.getSession();
+    if(result.error)throw result.error;
+
+    if(!result.data.session){
+      result=await client.auth.signInAnonymously();
+      if(result.error)throw result.error;
+    }
+
+    currentUser=result.data.session?.user||null;
+    if(!currentUser){
+      const s=await client.auth.getSession();
+      currentUser=s.data.session?.user||null;
+    }
+    needUser();
+
+    const profile=await client.from("profiles").upsert(
+      {id:currentUser.id,username:username},
+      {onConflict:"id",ignoreDuplicates:true}
+    );
+    if(profile.error)throw profile.error;
+
+    // Periksa apakah profil sudah ada dengan username yang sama.
+    const check=await client.from("profiles").select("username").eq("id",currentUser.id).maybeSingle();
+    if(check.error)throw check.error;
+    if(check.data&&check.data.username!==username){
+      throw new Error("Username akun ini berbeda dari yang tersimpan di browser. Jangan hapus data browser sebelum akun dipulihkan.");
+    }
+
+    showStatus("authStatus","Akun tersambung sebagai "+username+".","good");
+    showStatus("setupStatus","Username berhasil disimpan.","good");
+    await Promise.all([loadComments(),loadParties()]);
+    setupRealtime();
+  }catch(err){
+    currentUser=null;
+    showStatus("authStatus","Koneksi gagal: "+(err.message||String(err)),"bad");
+    showStatus("setupStatus","Username sudah tersimpan di browser, tetapi koneksi gagal. Perbaiki error di atas lalu tekan Muat ulang atau buka ulang halaman.","bad");
+  }
+}
+
 async function loadComments(){
-  if(refreshBusy)return;
-  refreshBusy=true;
+  if(!client||commentLoading)return;
+  commentLoading=true;
   $("refreshButton").disabled=true;
   try{
     const {data,error}=await client.from("comments")
       .select("id,username,message,created_at")
       .order("created_at",{ascending:false}).limit(100);
     if(error)throw error;
+
     const area=$("comments");
     area.replaceChildren();
-    if(!data?.length){
+
+    if(!data||!data.length){
       area.innerHTML='<div class="empty">Belum ada komentar. Jadilah yang pertama!</div>';
-      hideStatus("feedStatus");return;
+      hideStatus("feedStatus");
+      return;
     }
+
     for(const item of data){
       const article=document.createElement("article");
       article.className="comment";
-      const top=document.createElement("div");top.className="comment-top";
-      const av=document.createElement("div");av.className="mini-avatar";
-      av.textContent=(item.username||"U")[0].toUpperCase();
+      const top=document.createElement("div");
+      top.className="comment-top";
+      const av=document.createElement("div");
+      av.className="mini-avatar";
+      av.textContent=(item.username||"U").slice(0,1).toUpperCase();
+
       const ident=document.createElement("div");
       const name=document.createElement("button");
-      name.type="button";name.className="comment-name";name.textContent=item.username||"User";
+      name.type="button";
+      name.className="comment-name";
+      name.textContent=item.username||"User";
       name.title="Klik untuk mengundang ke Party";
       name.addEventListener("click",()=>inviteUser(item.username));
-      const date=document.createElement("div");date.className="date";date.textContent=timeLabel(item.created_at);
-      ident.append(name,date);top.append(av,ident);
-      const msg=document.createElement("p");msg.className="message";msg.textContent=item.message||"";
-      article.append(top,msg);area.append(article);
+
+      const date=document.createElement("div");
+      date.className="date";
+      date.textContent=timeLabel(item.created_at);
+      ident.append(name,date);
+      top.append(av,ident);
+
+      const msg=document.createElement("p");
+      msg.className="message";
+      msg.textContent=item.message||"";
+      article.append(top,msg);
+      area.append(article);
     }
     hideStatus("feedStatus");
   }catch(err){
-    showFeedError(err);
+    showStatus("feedStatus","Komentar gagal dimuat: "+(err.message||String(err)),"bad");
   }finally{
-    refreshBusy=false;$("refreshButton").disabled=false;
+    commentLoading=false;
+    $("refreshButton").disabled=false;
   }
 }
-function showFeedError(err){
-  $("comments").innerHTML='<div class="empty">Komentar belum bisa dimuat.</div>';
-  status("feedStatus",(err?.message||String(err))+" Pastikan tabel comments dan aksesnya sudah disiapkan.","bad");
-}
-$("commentForm").addEventListener("submit",async e=>{
-  e.preventDefault();
-  if(!username){status("commentStatus","Atur username dulu.","bad");return}
-  const btn=$("commentSubmit");btn.disabled=true;hideStatus("commentStatus");
+
+$("commentForm").addEventListener("submit",async event=>{
+  event.preventDefault();
+  if(!username){showStatus("commentStatus","Atur username dulu.","bad");return}
+  if(!client){showStatus("commentStatus","Supabase belum siap. Buka ulang halaman dan periksa internet.","bad");return}
+  const message=$("message").value.trim();
+  if(!message){showStatus("commentStatus","Komentar tidak boleh kosong.","bad");return}
+
+  $("commentSubmit").disabled=true;
   try{
-    const message=$("message").value.trim();
-    if(!message)throw Error("Komentar tidak boleh kosong.");
     const {error}=await client.from("comments").insert({username,message});
     if(error)throw error;
     $("message").value="";
-    status("commentStatus","Komentar berhasil dikirim!","good");
+    showStatus("commentStatus","Komentar berhasil dikirim!","good");
     await loadComments();
   }catch(err){
-    status("commentStatus",(err?.message||String(err))+" Periksa aturan akses tabel comments.","bad");
-  }finally{btn.disabled=false}
+    showStatus("commentStatus","Gagal mengirim komentar: "+(err.message||String(err)),"bad");
+  }finally{
+    $("commentSubmit").disabled=false;
+  }
 });
 $("refreshButton").addEventListener("click",loadComments);
 
 async function inviteUser(targetName){
   try{
-    requireIdentity();
+    needUser();
     const target=String(targetName||"").trim();
     if(!target||target.toLowerCase()===username.toLowerCase()){
-      alert("Lu tidak bisa mengundang diri sendiri.");return;
+      alert("Lu tidak bisa mengundang diri sendiri.");
+      return;
     }
+
     const {data:targetProfile,error:findError}=await client.from("profiles")
       .select("id,username").ilike("username",target).maybeSingle();
     if(findError)throw findError;
     if(!targetProfile){
-      alert("Username ini belum terdaftar di fitur Party. Pemiliknya perlu membuka website dan menyimpan username terlebih dahulu.");
+      alert("Username ini belum terdaftar di fitur Party. Teman lu harus membuka website dan menyimpan username dahulu.");
       return;
     }
+
     const {data:existing,error:existingError}=await client.from("parties")
       .select("id,status,inviter_id,invitee_id")
       .or("and(inviter_id.eq."+currentUser.id+",invitee_id.eq."+targetProfile.id+"),and(inviter_id.eq."+targetProfile.id+",invitee_id.eq."+currentUser.id+")")
       .in("status",["pending","accepted"]).limit(1);
     if(existingError)throw existingError;
-    if(existing?.length){
-      alert(existing[0].status==="accepted"?"Kalian sudah punya Party aktif. Cek bagian Party berdua.":"Undangan Party dengan username ini masih menunggu respons.");
-      await loadParties();return;
+    if(existing&&existing.length){
+      alert(existing[0].status==="accepted"?"Party kalian sudah aktif. Cek bagian Party berdua.":"Undangan dengan username ini masih menunggu respons.");
+      await loadParties();
+      return;
     }
+
     const {error}=await client.from("parties").insert({
       inviter_id:currentUser.id,
       invitee_id:targetProfile.id,
       status:"pending"
     });
     if(error)throw error;
-    status("partyStatus","Undangan Party terkirim ke "+targetProfile.username+".","good");
+    showStatus("partyStatus","Undangan terkirim ke "+targetProfile.username+".","good");
     await loadParties();
   }catch(err){
-    status("partyStatus","Gagal mengirim undangan: "+(err.message||String(err))+". Periksa SQL/RLS.","bad");
+    showStatus("partyStatus","Undangan gagal: "+(err.message||String(err)),"bad");
   }
 }
 
 async function loadParties(){
-  if(!currentUser||partyBusy)return;
-  partyBusy=true;
+  if(!client||!currentUser||partyLoading)return;
+  partyLoading=true;
   try{
     const {data,error}=await client.from("parties")
       .select("id,inviter_id,invitee_id,status,created_at")
       .or("inviter_id.eq."+currentUser.id+",invitee_id.eq."+currentUser.id)
       .order("created_at",{ascending:false}).limit(50);
     if(error)throw error;
+
     const parties=data||[];
-    const ids=[...new Set(parties.flatMap(p=>[p.inviter_id,p.invitee_id]))].filter(id=>id!==currentUser.id);
-    let profiles={};
-    if(ids.length){
-      const {data:ps,error:pe}=await client.from("profiles").select("id,username").in("id",ids);
-      if(pe)throw pe;
-      for(const p of ps||[])profiles[p.id]=p.username;
+    const otherIds=[...new Set(parties.map(p=>p.inviter_id===currentUser.id?p.invitee_id:p.inviter_id))];
+    let names={};
+    if(otherIds.length){
+      const {data:profiles,error:profileError}=await client.from("profiles").select("id,username").in("id",otherIds);
+      if(profileError)throw profileError;
+      for(const p of profiles||[])names[p.id]=p.username;
     }
-    const area=$("partyList");area.replaceChildren();
+
+    const area=$("partyList");
+    area.replaceChildren();
     if(!parties.length){
       area.innerHTML='<div class="empty">Belum ada Party. Klik username di komentar untuk mengundang.</div>';
-      hideStatus("partyStatus");return;
+      hideStatus("partyStatus");
+      return;
     }
+
     for(const p of parties){
       const otherId=p.inviter_id===currentUser.id?p.invitee_id:p.inviter_id;
-      const other=profiles[otherId]||"Pengguna";
-      const item=document.createElement("div");item.className="party-item";
-      const row=document.createElement("div");row.className="party-row";
-      const title=document.createElement("strong");title.textContent=other;
-      const pill=document.createElement("span");pill.className="pill";
-      pill.textContent=p.status==="pending"?"Menunggu":p.status==="accepted"?"Aktif":p.status==="declined"?"Ditolak":"Ditutup";
-      row.append(title,pill);item.append(row);
-      const actions=document.createElement("div");actions.className="party-actions";
+      const otherName=names[otherId]||"Pengguna";
+      const item=document.createElement("div");
+      item.className="party-item";
+      const row=document.createElement("div");
+      row.className="party-row";
+      const title=document.createElement("strong");
+      title.textContent=otherName;
+      const pill=document.createElement("span");
+      pill.className="pill";
+      pill.textContent=p.status==="pending"?"Menunggu":p.status==="accepted"?"Aktif":"Ditolak";
+      row.append(title,pill);
+      item.append(row);
+
+      const actions=document.createElement("div");
+      actions.className="party-actions";
+
       if(p.status==="pending"&&p.invitee_id===currentUser.id){
-        const accept=document.createElement("button");accept.className="small-btn";accept.textContent="Accept";
+        const accept=document.createElement("button");
+        accept.className="small-btn";
+        accept.textContent="Accept";
         accept.addEventListener("click",()=>answerInvite(p.id,"accepted"));
-        const decline=document.createElement("button");decline.className="small-btn";decline.textContent="Decline";
+        const decline=document.createElement("button");
+        decline.className="small-btn";
+        decline.textContent="Decline";
         decline.addEventListener("click",()=>answerInvite(p.id,"declined"));
         actions.append(accept,decline);
       }
+
       if(p.status==="accepted"){
-        const open=document.createElement("button");open.className="small-btn";open.textContent="🔒 Buka chat";
-        open.addEventListener("click",()=>openChat(p,other));
+        const open=document.createElement("button");
+        open.className="small-btn";
+        open.textContent="🔒 Buka chat";
+        open.addEventListener("click",()=>openChat(p,otherName));
         actions.append(open);
       }
-      item.append(actions);area.append(item);
+
+      item.append(actions);
+      area.append(item);
     }
     hideStatus("partyStatus");
   }catch(err){
-    status("partyStatus","Party belum bisa dimuat: "+(err.message||String(err))+". Jalankan SQL dan periksa RLS.","bad");
-  }finally{partyBusy=false}
-}
-async function answerInvite(id,newStatus){
-  try{
-    requireIdentity();
-    const {error}=await client.from("parties").update({status:newStatus}).eq("id",id).eq("invitee_id",currentUser.id).eq("status","pending");
-    if(error)throw error;
-    status("partyStatus",newStatus==="accepted"?"Undangan diterima! Chat sudah tersedia.":"Undangan ditolak.","good");
-    await loadParties();
-  }catch(err){status("partyStatus","Gagal memperbarui undangan: "+(err.message||String(err)),"bad")}
+    showStatus("partyStatus","Party gagal dimuat: "+(err.message||String(err)),"bad");
+  }finally{
+    partyLoading=false;
+  }
 }
 
-function openChat(p,other){
+async function answerInvite(id,newStatus){
+  try{
+    needUser();
+    const {data,error}=await client.from("parties")
+      .update({status:newStatus})
+      .eq("id",id).eq("invitee_id",currentUser.id).eq("status","pending")
+      .select("id");
+    if(error)throw error;
+    if(!data||!data.length)throw new Error("Undangan tidak ditemukan atau sudah diproses.");
+    showStatus("partyStatus",newStatus==="accepted"?"Undangan diterima! Chat tersedia.":"Undangan ditolak.","good");
+    await loadParties();
+  }catch(err){
+    showStatus("partyStatus","Gagal merespons undangan: "+(err.message||String(err)),"bad");
+  }
+}
+
+function openChat(p,otherName){
   activeParty=p;
-  $("chatTitle").textContent="🔒 Chat dengan "+other;
+  $("chatTitle").textContent="🔒 Chat dengan "+otherName;
   $("chatPanel").classList.remove("hidden");
-  $("chatPanel").scrollIntoView({behavior:"smooth",block:"start"});
   loadMessages();
+  $("chatPanel").scrollIntoView({behavior:"smooth",block:"start"});
 }
 $("closeChat").addEventListener("click",()=>{
-  activeParty=null;$("chatPanel").classList.add("hidden");
+  activeParty=null;
+  $("chatPanel").classList.add("hidden");
 });
+
 async function loadMessages(){
-  if(!activeParty||chatBusy)return;
-  chatBusy=true;
+  if(!client||!currentUser||!activeParty||messageLoading)return;
+  messageLoading=true;
   try{
     const {data,error}=await client.from("party_messages")
       .select("id,party_id,sender_id,message,created_at")
       .eq("party_id",activeParty.id).order("created_at",{ascending:true}).limit(200);
     if(error)throw error;
-    const area=$("chatMessages");area.replaceChildren();
-    if(!data?.length)area.innerHTML='<div class="empty">Belum ada pesan. Mulai obrolan kalian!</div>';
-    for(const m of data||[]){
-      const bubble=document.createElement("div");
-      bubble.className="chat-msg"+(m.sender_id===currentUser.id?" mine":"");
-      const meta=document.createElement("div");meta.className="chat-meta";
-      meta.textContent=(m.sender_id===currentUser.id?"Lu":"Teman Party")+" · "+timeLabel(m.created_at);
-      const body=document.createElement("div");body.textContent=m.message;
-      bubble.append(meta,body);area.append(bubble);
+
+    const area=$("chatMessages");
+    area.replaceChildren();
+    if(!data||!data.length){
+      area.innerHTML='<div class="empty">Belum ada pesan. Mulai obrolan kalian!</div>';
+    }else{
+      for(const m of data){
+        const bubble=document.createElement("div");
+        bubble.className="chat-msg"+(m.sender_id===currentUser.id?" mine":"");
+        const meta=document.createElement("div");
+        meta.className="chat-meta";
+        meta.textContent=(m.sender_id===currentUser.id?"Lu":"Teman Party")+" · "+timeLabel(m.created_at);
+        const body=document.createElement("div");
+        body.textContent=m.message;
+        bubble.append(meta,body);
+        area.append(bubble);
+      }
+      area.scrollTop=area.scrollHeight;
     }
-    area.scrollTop=area.scrollHeight;hideStatus("chatStatus");
+    hideStatus("chatStatus");
   }catch(err){
-    status("chatStatus","Pesan gagal dimuat: "+(err.message||String(err)),"bad");
-  }finally{chatBusy=false}
+    showStatus("chatStatus","Pesan gagal dimuat: "+(err.message||String(err)),"bad");
+  }finally{
+    messageLoading=false;
+  }
 }
-$("chatForm").addEventListener("submit",async e=>{
-  e.preventDefault();
+
+$("chatForm").addEventListener("submit",async event=>{
+  event.preventDefault();
   if(!activeParty||!currentUser)return;
   const message=$("chatInput").value.trim();
   if(!message)return;
+
   $("chatSend").disabled=true;
   try{
     const {error}=await client.from("party_messages").insert({
-      party_id:activeParty.id,sender_id:currentUser.id,message
+      party_id:activeParty.id,
+      sender_id:currentUser.id,
+      message
     });
     if(error)throw error;
     $("chatInput").value="";
     await loadMessages();
   }catch(err){
-    status("chatStatus","Pesan gagal dikirim: "+(err.message||String(err)),"bad");
-  }finally{$("chatSend").disabled=false}
+    showStatus("chatStatus","Pesan gagal dikirim: "+(err.message||String(err)),"bad");
+  }finally{
+    $("chatSend").disabled=false;
+  }
 });
-$("partyRefresh").addEventListener("click",async()=>{await loadParties();await loadMessages()});
+
+$("partyRefresh").addEventListener("click",async()=>{
+  await loadParties();
+  await loadMessages();
+});
 
 function setupRealtime(){
-  if(channel)client.removeChannel(channel);
-  channel=client.channel("owner-comments-live-"+currentUser.id)
+  if(!client||!currentUser)return;
+  if(realtimeChannel)client.removeChannel(realtimeChannel);
+  realtimeChannel=client.channel("owner-comments-"+currentUser.id)
     .on("postgres_changes",{event:"*",schema:"public",table:"comments"},()=>loadComments())
     .on("postgres_changes",{event:"*",schema:"public",table:"parties"},()=>loadParties())
     .on("postgres_changes",{event:"*",schema:"public",table:"profiles"},()=>loadParties())
     .on("postgres_changes",{event:"*",schema:"public",table:"party_messages"},payload=>{
-      if(activeParty&&payload.new?.party_id===activeParty.id)loadMessages();
+      if(activeParty&&payload.new&&payload.new.party_id===activeParty.id)loadMessages();
     })
     .subscribe();
 }
-renderUsername();
-loadComments();
-if(username)initIdentity();
 
-// Auto-refresh fallback: tidak reload halaman dan tidak menghapus username.
+// Mulai halaman
+try{
+  username=localStorage.getItem(USERNAME_KEY)||"";
+  renderUsername();
+  if(username){
+    connectAccount();
+  }else{
+    loadComments();
+  }
+}catch(err){
+  showStatus("setupStatus","Gagal membaca penyimpanan browser: "+(err.message||String(err)),"bad");
+}
+
+// Auto-refresh cadangan; tidak memuat ulang seluruh halaman.
 setInterval(()=>{
-  loadComments();
+  if(client)loadComments();
   if(currentUser)loadParties();
   if(activeParty)loadMessages();
-},10000);
+},15000);
+
+window.addEventListener("error",event=>{
+  const msg=event.message||"Kesalahan JavaScript tidak diketahui";
+  if(username)showStatus("authStatus","JavaScript error: "+msg,"bad");
+  else showStatus("setupStatus","JavaScript error: "+msg,"bad");
+});
 </script>
 </body>
 </html>
